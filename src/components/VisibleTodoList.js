@@ -8,10 +8,13 @@ const getVisibleTodos = (todos, filter) => {
       return todos;
     case 'SHOW_COMPLETED':
       return todos.filter(t => t.completed);
-    case 'SHOW_ACTIVE':
-      return todos.filter(t => !t.completed);
-    default:
-      throw new Error(`Unknown filter: ${filter}.`);
+    // FIXME: Someone needs to implement this code - nickstew - Wed Apr 12 14:42:10 MDT 2017
+    // case 'SHOW_ACTIVE':
+      // return todos.filter(t => !t.completed);
+    default: {
+      console.error(`Unknown filter: ${filter}.`);
+      return todos;
+    }
   }
 };
 
