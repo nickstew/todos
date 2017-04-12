@@ -1,19 +1,23 @@
 import path from 'path';
 
 export default {
-  devtool: 'eval',
-  entry: './src/index',
+  devtool: 'cheap-module-source-map',
+  context: __dirname,
+  entry: {
+    main: [
+      './src/index.js'
+    ]
+  },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/static/',
+    filename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: ['babel'],
-      exclude: /node_modules/,
-      include: __dirname,
-    }],
+    rules: [
+      {
+        test: /\.js$/,
+        use: ['react-hot-loader', 'babel-loader'],
+        exclude: /node_modules/
+      }
+    ]
   },
 };
