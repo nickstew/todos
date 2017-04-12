@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "Redux Todos example",
   "scripts": {
-    "start": "babel-node devServer.js",
+    "start": "webpack-dev-server --progress --open --colors --hot --content-base public/ --config ./webpack.config.babel.js",
+    "old-start": "babel-node devServer.js",
     "lint": "eslint src"
   },
   "repository": {
@@ -35,5 +36,6 @@
     "react-hot-loader": "^1.3.1",
     "webpack": "2.3.3",
     "webpack-dev-middleware": "^1.2.0",
+    "webpack-dev-server": "^2.4.2"
   }
 }
